@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Budget Tracker</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./index-0e3c094e.css" />
+  </head>
+  <body class="font-mono text-[#f2f2f2]">
+    <div class="container1 w-screen flex justify-center items-center">
+      <div
+        class="container flex flex-row justify-center items-center w-[1200px] h-screen">
+        <div id="budget-section" class="w-1/2 space-x-5 space-y-3 p-8">
+          <h2 class="text-2xl font-semibold mb-4">Total Budget</h2>
+          <input
+            type="number"
+            id="budget-amount"
+            required
+            placeholder="Enter your budget"
+            class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+          <button
+            id="set-budget"
+            class="bg-green-800 text-sm font-semibold py-2 px-4 rounded-lg hover:rounded-md hover:bg-green-600 cursor-pointer">
+            Set Budget
+          </button>
+          <p id="total-budget" class="text-[1.25rem] font-semibold">
+            Total Budget: $0
+          </p>
+          <input
+            type="number"
+            id="additional-income"
+            placeholder="Additional Income"
+            required
+            class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+          <button
+            id="add-income"
+            class="bg-green-800 text-sm font-semibold py-2 px-4 rounded-lg hover:rounded-md hover:bg-green-600 cursor-pointer">
+            Add Income
+          </button>
+          <p id="total-income" class="text-[1.25rem] font-semibold">
+            Total income: $0
+          </p>
+        </div>
+
+        <div
+          id="expense-section"
+          class="w-4/5 h-full flex justify-center items-center flex-col">
+          <h2 class="text-2xl font-semibold mb-4">Daily Expenses</h2>
+          <div class="inputs my-5 space-x-3 flex flex-row">
+            <input
+              type="text"
+              id="expense-description"
+              placeholder="Expense Description"
+              required
+              class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+            <input
+              type="number"
+              id="expense-amount"
+              required
+              placeholder="Amount"
+              class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+            <button
+              id="add-expense"
+              class="bg-green-800 text-sm font-semibold py-2 px-4 rounded-lg hover:rounded-md hover:bg-green-600 cursor-pointer">
+              Add Expense
+            </button>
+          </div>
+
+          <table id="expense-table" class="p-5 my-6 text-lg">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <div>
+                  <th>Amount</th>
+                  <th>amount-left</th>
+                </div>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <!-- Expense rows will be added here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="chart w-96 h-96 block my-0 mx-auto">
+      <canvas id="budget-chart"></canvas>
+    </div>
+    <button id="import-excel" class="hidden">Import from Excel</button>
+    <div
+      class="todosection w-full h-96 flex flex-row justify-center items-center">
+      <div id="todo-section " class="">
+        <h2 class="text-3xl font-semibold my-5">Finance To-Do List</h2>
+        <input
+          type="text"
+          id="todo-task"
+          placeholder="Task Description"
+          required
+          class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+        <input
+          type="date"
+          id="todo-deadline"
+          placeholder="Deadline"
+          required
+          class="rounded-sm text-black px-4 py-2 outline-4 outline-green-900" />
+        <button
+          id="add-task"
+          class="bg-green-800 text-sm font-semibold py-2 px-4 rounded-lg hover:rounded-md hover:bg-green-600 cursor-pointer">
+          Add Task
+        </button>
+        <ul id="task-list" class="text-lg m-6"></ul>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>
